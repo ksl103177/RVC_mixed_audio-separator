@@ -59,7 +59,7 @@
 [Install Pre-trained models(korean)](https://huggingface.co/SeoulStreamingStation/KLM4/tree/main)
 ---
 ## Installing hubert(Path -> assets/hubert)
-[Install hubert_base.pt](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/hubert_base.pt)
+[Install hubert base.pt](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/hubert_base.pt)
 ---
 ## Installing rmvpe(Path -> assets/rmvpe)
 [Install rmvpe.pt](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.pt)
