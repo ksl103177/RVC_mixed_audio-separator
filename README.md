@@ -13,6 +13,7 @@
 - pip install pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ---
 ## How to use
+### Training
 1. Enter the values from the rvc_train_config.yaml file in the load_yaml folder.
 - exp_dir1 : Name of the model to train
 - sr2 : Adjust the sampling rate value, options = 32k, 40k, 48k
@@ -33,3 +34,21 @@
 - gpus_rmvpe : Specify GPU number to use for RMVPE model, 0, 0,1 (integer value)
 - trainset_dir4 : Specify the path to the training data
 2. After specifying all the values needed for training, type python train_cli.py in the command.
+### Inference
+3. Enter the values from the rvc_main_config.yaml file in the load_yaml folder.
+- trained_model_name: specifies the name of the trained model in the assets/weights path
+- file_index: Specifies the index file in the folder with the name of the trained model in the logs path
+- input_audio: Specifies the path to the song file for voice conversion
+- first_mr_output_dir : Specify the path where the MR of the song file to be voice converted is saved
+- output_info: Specify the path to the txt file where the log of the inference is recorded
+- output_audio: Specify the path where output files are saved
+- spk_id: specify the speaker ID specified in training
+- transform : Pitch transformation, option = -12 ~ 12 (integer value)
+- f0_file: Fixed to null value
+- f0_method : F0 extraction method, options = pm, harvest, crepe, rmvpe
+- index_rate: Index feature ratio, options = 0.0 ~ 1.0 (real value)
+- filter_radius: Center filtering radius, options = 1 to 5 (integer value)
+- resample_sr : Resampling sample rate, options = 16000, 22050, 44100, 48000
+- rms_mix_rate: RMS mix rate, option = 0.0 ~ 1.0 (real value)
+- protect: Consonant and breath protection, option = 0.0 to 1.0 (real value)
+4. After specifying all the values needed for the inference, type python main.py in the command.
