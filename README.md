@@ -1,7 +1,7 @@
 # RVC + Audio separator project
 ---
 ## Features
----  All you need is a model checkpoint and a song file to use as input, and the VOCAL and MR separations and even the MIX are automated.
+- All you need is a model checkpoint and a song file to use as input, and the VOCAL and MR separations and even the MIX are automated.
 ## python version 3.8 <= 3.11
 ---
 ## Installation Guide
