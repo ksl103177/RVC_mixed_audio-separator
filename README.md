@@ -55,4 +55,4 @@
 ---
 ## Installing a pre-trained model
 ### Basic pre-training models
-    - https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/pretrained_v2
+(https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/pretrained_v2)
