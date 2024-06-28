@@ -27,6 +27,9 @@ def process_audio(file_path, local_output_dir, server_url, model_index):
 
         local_output_path = os.path.join(local_output_dir, filename)
 
+        # 디렉토리가 존재하지 않으면 생성
+        os.makedirs(os.path.dirname(local_output_path), exist_ok=True)
+
         if download_response.status_code == 200:
             with open(local_output_path, 'wb') as local_file:
                 download_response.raw.decode_content = True
@@ -37,9 +40,9 @@ def process_audio(file_path, local_output_dir, server_url, model_index):
     else:
         print('응답에 파일 경로가 포함되어 있지 않거나 처리에 실패했습니다.')
 
-file_path = "C:/RVC/RVC_test/infer_song/local_infer_song.wav"  # 업로드할 파일 경로
-local_output_dir = 'C:/RVC/RVC_test/infer_output'  # 최종적으로 만들어진 노래를 저장할 폴더 경로
+file_path = "C:/RVC_mixed/infer_song/local_infer_song.wav"  # 업로드할 파일 경로
+local_output_dir = 'C:/RVC_mixed/infer_output'  # 최종적으로 만들어진 노래를 저장할 폴더 경로
 server_url = 'http://114.110.130.187:20088'
-model_index = 0  # 사용할 모델의 인덱스
+model_index = 2  # 사용할 모델의 인덱스
 
 process_audio(file_path, local_output_dir, server_url, model_index)
