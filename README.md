@@ -54,5 +54,5 @@
 4. After specifying all the values needed for the inference, type python main.py in the command.
 ---
 ## Installing a pre-trained model
-- Basic pre-training models
-### https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/pretrained_v2
+### Basic pre-training models
+    - https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/pretrained_v2
