@@ -186,13 +186,14 @@ if __name__ == "__main__":
     
     input_audio_path = config_data['paths']['input_audio']
     first_mr_output_dir = config_data['paths']['first_mr_output_dir']
+    output_path = config_data['paths']['output_audio']
+    
     processed_audio_path, mr_path = audio_sep(input_audio_path, first_mr_output_dir)
     
     if processed_audio_path is not None and mr_path is not None:
         output_audio_path = single_inference(processed_audio_path)
         if output_audio_path is not None:
-            mixed_output_path = config_data['paths']['mixed_output']
-            mix_audio(output_audio_path, mr_path, mixed_output_path)
+            mix_audio(output_audio_path, mr_path, output_path)
         else:
             print("RVC 추론에 실패했습니다. 오디오 믹싱이 수행되지 않습니다...")
     else:

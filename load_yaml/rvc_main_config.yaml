@@ -7,7 +7,6 @@ paths:
   first_mr_output_dir: ""
   output_info: ""
   output_audio: ""
-  mixed_output: ""
 
 inference:
   spk_id: 0
