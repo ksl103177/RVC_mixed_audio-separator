@@ -21,6 +21,7 @@ An easy-to-use voice conversion framework based on VITS.<br><br>
 
 </div>
 
+<<<<<<< HEAD
 > The base model is trained using nearly 50 hours of high-quality open-source VCTK training set. Therefore, there are no copyright concerns, please feel free to use.
 
 > Please look forward to the base model of RVCv3 with larger parameters, larger dataset, better effects, basically flat inference speed, and less training data required.
@@ -45,6 +46,34 @@ An easy-to-use voice conversion framework based on VITS.<br><br>
 		<td align="center">We have achieved an end-to-end latency of 170ms. With the use of ASIO input and output devices, we have managed to achieve an end-to-end latency of 90ms, but it is highly dependent on hardware driver support.</td>
 	</tr>
 </table>
+=======
+> Check out our [Demo Video](https://www.bilibili.com/video/BV1pm4y1z7Gm/) here!
+
+<table>
+   <tr>
+		<td align="center">Training and inference Webui</td>
+		<td align="center">Real-time voice changing GUI</td>
+	</tr>
+  <tr>
+		<td align="center"><img src="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/assets/129054828/092e5c12-0d49-4168-a590-0b0ef6a4f630"></td>
+    <td align="center"><img src="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/assets/129054828/730b4114-8805-44a1-ab1a-04668f3c30a6"></td>
+	</tr>
+	<tr>
+		<td align="center">go-web.bat</td>
+		<td align="center">go-realtime-gui.bat</td>
+	</tr>
+  <tr>
+    <td align="center">You can freely choose the action you want to perform.</td>
+		<td align="center">We have achieved an end-to-end latency of 170ms. With the use of ASIO input and output devices, we have managed to achieve an end-to-end latency of 90ms, but it is highly dependent on hardware driver support.</td>
+	</tr>
+</table>
+
+> The dataset for the pre-training model uses nearly 50 hours of high quality audio from the VCTK open source dataset.
+
+> High quality licensed song datasets will be added to the training-set often for your use, without having to worry about copyright infringement.
+
+> Please look forward to the pretrained base model of RVCv3, which has larger parameters, more training data, better results, unchanged inference speed, and requires less training data for training.
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 
 ## Features:
 + Reduce tone leakage by replacing the source feature to training-set feature using top1 retrieval;
@@ -57,6 +86,7 @@ An easy-to-use voice conversion framework based on VITS.<br><br>
 + AMD/Intel graphics cards acceleration supported;
 + Intel ARC graphics cards acceleration with IPEX supported.
 
+<<<<<<< HEAD
 Check out our [Demo Video](https://www.bilibili.com/video/BV1pm4y1z7Gm/) here!
 
 ## Environment Configuration
@@ -64,6 +94,10 @@ Check out our [Demo Video](https://www.bilibili.com/video/BV1pm4y1z7Gm/) here!
 > It is recommended to use conda to manage the Python environment.
 
 > For the reason of the version limitation, please refer to this [bug](https://github.com/facebookresearch/fairseq/issues/5012).
+=======
+## Preparing the environment
+The following commands need to be executed with Python 3.8 or higher.
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 
 ```bash
 python --version # 3.8 <= Python < 3.11
@@ -149,6 +183,7 @@ sudo apt install ffmpeg
 ```
 #### MacOS
 ```bash
+<<<<<<< HEAD
 brew install ffmpeg
 ```
 #### Windows
@@ -156,6 +191,45 @@ After downloading, place it in the root directory.
 ```bash
 rvcmd tools/ffmpeg # RVC-Models-Downloader command
 ```
+=======
+./assets/hubert/hubert_base.pt
+
+./assets/pretrained 
+
+./assets/uvr5_weights
+
+Additional downloads are required if you want to test the v2 version of the model.
+
+./assets/pretrained_v2
+
+If you want to test the v2 version model (the v2 version model has changed the input from the 256 dimensional feature of 9-layer Hubert+final_proj to the 768 dimensional feature of 12-layer Hubert, and has added 3 period discriminators), you will need to download additional features
+
+./assets/pretrained_v2
+
+If you want to use the latest SOTA RMVPE vocal pitch extraction algorithm, you need to download the RMVPE weights and place them in the RVC root directory
+
+https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.pt
+
+    For AMD/Intel graphics cards users you need download:
+
+    https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.onnx
+
+```
+
+### 2. Install FFmpeg
+If you have FFmpeg and FFprobe installed on your computer, you can skip this step.
+
+#### For Ubuntu/Debian users
+```bash
+sudo apt install ffmpeg
+```
+#### For MacOS users
+```bash
+brew install ffmpeg
+```
+#### For Windwos users
+Download these files and place them in the root folder:
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 - [ffmpeg.exe](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/ffmpeg.exe)
 
 - [ffprobe.exe](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/ffprobe.exe)
@@ -189,11 +263,16 @@ For some models of graphics cards, you may need to configure the following envir
 export ROCM_PATH=/opt/rocm
 export HSA_OVERRIDE_GFX_VERSION=10.3.0
 ````
+<<<<<<< HEAD
 Also, make sure your current user is in the `render` and `video` user groups.
+=======
+Make sure your user is part of the `render` and `video` group:
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 ````
 sudo usermod -aG render $USERNAME
 sudo usermod -aG video $USERNAME
 ````
+<<<<<<< HEAD
 ## Getting Started
 ### Direct Launch
 Use the following command to start the WebUI.
@@ -215,6 +294,27 @@ Download and unzip `RVC-beta.7z`. After unzipping, double-click `go-web.bat` to 
 rvcmd packs/general/latest # RVC-Models-Downloader command
 ```
 
+=======
+
+## Get started
+### start up directly
+Use the following command to start WebUI:
+```bash
+python infer-web.py
+```
+### Use the integration package
+Download and extract file `RVC-beta.7z`, then follow the steps below according to your system:
+#### For Windows users
+双击`go-web.bat`
+#### For MacOS users
+```bash
+sh ./run.sh
+```
+### For Intel IPEX users (Linux Only)
+```bash
+source /opt/intel/oneapi/setvars.sh
+```
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 ## Credits
 + [ContentVec](https://github.com/auspicious3000/contentvec/)
 + [VITS](https://github.com/jaywalnut310/vits)

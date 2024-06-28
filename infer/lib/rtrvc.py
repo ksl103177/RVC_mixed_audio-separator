@@ -405,10 +405,14 @@ class RVC:
             if f0method == "rmvpe":
                 f0_extractor_frame = 5120 * ((f0_extractor_frame - 1) // 5120 + 1) - 160
             pitch, pitchf = self.get_f0(
+<<<<<<< HEAD
                 input_wav[-f0_extractor_frame:],
                 self.f0_up_key - self.formant_shift,
                 self.n_cpu,
                 f0method,
+=======
+                input_wav[-f0_extractor_frame:], self.f0_up_key - self.formant_shift, self.n_cpu, f0method
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
             )
             shift = block_frame_16k // 160
             self.cache_pitch[:-shift] = self.cache_pitch[shift:].clone()
@@ -416,9 +420,13 @@ class RVC:
             self.cache_pitch[4 - pitch.shape[0] :] = pitch[3:-1]
             self.cache_pitchf[4 - pitch.shape[0] :] = pitchf[3:-1]
             cache_pitch = self.cache_pitch[None, -p_len:]
+<<<<<<< HEAD
             cache_pitchf = (
                 self.cache_pitchf[None, -p_len:] * return_length2 / return_length
             )
+=======
+            cache_pitchf = self.cache_pitchf[None, -p_len:] * return_length2 / return_length
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
         t4 = ttime()
         feats = F.interpolate(feats.permute(0, 2, 1), scale_factor=2).permute(0, 2, 1)
         feats = feats[:, :p_len, :]

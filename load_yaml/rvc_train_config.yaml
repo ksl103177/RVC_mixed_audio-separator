@@ -1,0 +1,19 @@
+training:
+  exp_dir1: "local_ansunghun_01"
+  sr2: "48k"
+  if_f0_3: true
+  spk_id5: 0
+  save_epoch10: 20
+  total_epoch11: 100
+  batch_size12: 12
+  if_save_latest13: true
+  pretrained_G14: "assets/pretrained_v2/G_KLM40_48k.pth"
+  pretrained_D15: "assets/pretrained_v2/D_KLM40_48k.pth"
+  gpus16: "0"
+  if_cache_gpu17: true
+  if_save_every_weights18: false
+  version19: "v2"
+  n_p: 8
+  f0method: "rmvpe_gpu"
+  gpus_rmvpe: "0"
+  trainset_dir4: "C:/RVC/RVC_test/ansunghun_speech_song"

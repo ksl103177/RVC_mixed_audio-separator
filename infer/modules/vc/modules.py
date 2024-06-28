@@ -177,7 +177,7 @@ class VC:
                     .replace("trained", "added")
                 )
             elif file_index2:
-                file_index = file_index2
+               file_index = file_index2
             else:
                 file_index = ""  # 防止小白写错，自动帮他替换掉
 

@@ -7,8 +7,12 @@ VITS 기반의 간단하고 사용하기 쉬운 음성 변환 프레임워크.<b
 
 <img src="https://counter.seku.su/cmoe?name=rvc&theme=r34" /><br>
 
+<<<<<<< HEAD
 [![RVC v1](https://img.shields.io/badge/RVCv1-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/github/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/blob/main/tools/ipynb/v1.ipynb)
 [![RVC v2](https://img.shields.io/badge/RVCv2-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/github/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/blob/main/tools/ipynb/v2.ipynb)
+=======
+[![Open In Colab](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&color=525252)](https://colab.research.google.com/github/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/blob/main/Retrieval_based_Voice_Conversion_WebUI.ipynb)
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 [![Licence](https://img.shields.io/badge/LICENSE-MIT-green.svg?style=for-the-badge)](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI/blob/main/LICENSE)
 [![Huggingface](https://img.shields.io/badge/🤗%20-Spaces-yellow.svg?style=for-the-badge)](https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/)
 
@@ -20,12 +24,22 @@ VITS 기반의 간단하고 사용하기 쉬운 음성 변환 프레임워크.<b
 
 </div>
 
+<<<<<<< HEAD
+=======
+> [데모 영상](https://www.bilibili.com/video/BV1pm4y1z7Gm/)을 확인해 보세요!
+
+> RVC를 활용한 실시간 음성변환: [w-okada/voice-changer](https://github.com/w-okada/voice-changer)
+
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 > 기본 모델은 50시간 가량의 고퀄리티 오픈 소스 VCTK 데이터셋을 사용하였으므로, 저작권상의 염려가 없으니 안심하고 사용하시기 바랍니다.
 
 > 더 큰 매개변수, 더 큰 데이터, 더 나은 효과, 기본적으로 동일한 추론 속도, 더 적은 양의 훈련 데이터가 필요한 RVCv3의 기본 모델을 기대해 주십시오.
 
+<<<<<<< HEAD
 > 특정 지역에서 Hugging Face에 직접 연결할 수 없는 경우가 있으며, 성공적으로 연결해도 속도가 매우 느릴 수 있으므로, 모델/통합 패키지/도구의 일괄 다운로더를 특별히 소개합니다. [RVC-Models-Downloader](https://github.com/RVC-Project/RVC-Models-Downloader)
 
+=======
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 <table>
    <tr>
 		<td align="center">훈련 및 추론 인터페이스</td>
@@ -130,6 +144,7 @@ poetry install
 sh ./run.sh
 ```
 
+<<<<<<< HEAD
 <!--
 
 ## 其他资源准备
@@ -307,10 +322,28 @@ translate to Korean
   ```bash
   rvcmd assets/uvr5 # RVC-Models-Downloader command
   ```
+=======
+## 기타 사전 훈련된 모델 준비
+
+RVC는 추론과 훈련을 위해 다른 일부 사전 훈련된 모델이 필요합니다.
+
+이러한 모델은 저희의 [Hugging Face space](https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/)에서 다운로드할 수 있습니다.
+
+### 1. assets 다운로드
+
+다음은 RVC에 필요한 모든 사전 훈련된 모델과 기타 파일의 목록입니다. `tools` 폴더에서 이들을 다운로드하는 스크립트를 찾을 수 있습니다.
+
+- ./assets/hubert/hubert_base.pt
+
+- ./assets/pretrained
+
+- ./assets/uvr5_weights
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 
 v2 버전 모델을 사용하려면 추가로 다음을 다운로드해야 합니다.
 
 - ./assets/pretrained_v2
+<<<<<<< HEAD
   ```bash
   rvcmd assets/v2 # RVC-Models-Downloader command
   ```
@@ -318,6 +351,12 @@ v2 버전 모델을 사용하려면 추가로 다음을 다운로드해야 합�
 ### 2. ffmpeg 설치
 
 `ffmpeg`와 `ffprobe`가 이미 설치되어 있다면 건너뜁니다.
+=======
+
+### 2. ffmpeg 설치
+
+ffmpeg와 ffprobe가 이미 설치되어 있다면 건너뜁니다.
+>>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 
 #### Ubuntu/Debian 사용자
 
