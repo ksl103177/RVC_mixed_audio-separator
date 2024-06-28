@@ -10,7 +10,7 @@
 - conda create -n rvc python==3.10
 - activate rvc
 - pip install -r requirements.txt
-- pip install pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+- pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ---
 ## How to use
 ### Training
