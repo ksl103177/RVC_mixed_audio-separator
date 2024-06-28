@@ -53,23 +53,33 @@ sr_dict = {
 }
 
 def change_info_(ckpt_path):
+    default_update = {"__type__": "update"}
+    
     if not os.path.exists(ckpt_path.replace(os.path.basename(ckpt_path), "train.log")):
-        return {"__type__": "update"}, {"__type__": "update"}, {"__type__": "update"}
+        return default_update, default_update, default_update
+
     try:
         with open(ckpt_path.replace(os.path.basename(ckpt_path), "train.log"), "r") as f:
             lines = f.readlines()
-            for line in lines:
-                if "sample_rate" in line:
-                    sr = line.split(":")[-1].strip()
-                if "if_f0" in line:
-                    f0 = line.split(":")[-1].strip()
-                if "version" in line:
-                    version = line.split(":")[-1].strip()
-            return sr, f0, version
-    except:
+            # Assuming the first line contains the relevant info in JSON format
+            info_line = lines[0].strip()
+            try:
+                # Try to parse the line as JSON
+                info = json.loads(info_line.split("\t")[-1])
+            except json.JSONDecodeError:
+                # If JSON parsing fails, try to evaluate as a Python dict
+                try:
+                    info = eval(info_line.split("\t")[-1])
+                except Exception:
+                    return default_update, default_update, default_update
+            
+            sr = info.get("sample_rate", default_update)
+            f0 = info.get("if_f0", default_update)
+            version = "v2" if ("version" in info and info["version"] == "v2") else "v1"
+            return sr, str(f0), version
+    except Exception as e:
         traceback.print_exc()
-        return {"__type__": "update"}, {"__type__": "update"}, {"__type__": "update"}
-
+        return default_update, default_update, default_update
 
 def if_done(done, p):
     while p.poll() is None:
@@ -298,19 +308,43 @@ def click_train(
 
     logger.info("Execute: " + cmd)
 
+    current_epoch = 0
+    epoch_losses = []
+
     with Popen(cmd, shell=True, cwd=now_dir, stdout=PIPE, stderr=PIPE, bufsize=1, universal_newlines=True) as p:
         with open(train_log_path, "a") as log_file:
             for line in p.stdout:
-                if "Epoch" in line or "Saving model and optimizer state" in line:
-                    log_file.write(line)
-                    logger.info(line.strip())
+                log_file.write(line)
+                logger.info(line.strip())
+
+                if "====> Epoch:" in line:
+                    if epoch_losses:
+                        avg_loss = np.mean(epoch_losses)
+                        logger.info(f"Epoch {current_epoch} : Average Loss -> {avg_loss:.4f}")
+                        log_file.write(f"Epoch {current_epoch} : Average Loss -> {avg_loss:.4f}\n")
+                        epoch_losses = []
+                    current_epoch += 1
+
+                if "loss_disc=" in line or "loss_gen=" in line:
+                    loss_disc = float(line.strip().split("loss_disc=")[-1].split(",")[0])
+                    loss_gen = float(line.strip().split("loss_gen=")[-1].split(",")[0])
+                    loss_fm = float(line.strip().split("loss_fm=")[-1].split(",")[0])
+                    loss_mel = float(line.strip().split("loss_mel=")[-1].split(",")[0])
+                    loss_kl = float(line.strip().split("loss_kl=")[-1].split(",")[0])
+                    epoch_losses.append((loss_disc, loss_gen, loss_fm, loss_mel, loss_kl))
+
             for line in p.stderr:
                 if not ("RequestsDependencyWarning" in line or "UserWarning" in line or "resource_tracker" in line):
                     log_file.write(line)
                     logger.error(line.strip())
 
-    p.wait()
-    
+        # 마지막 에폭의 손실 값을 기록
+        if epoch_losses:
+            avg_loss = np.mean(epoch_losses, axis=0)
+            logger.info(f"Epoch {current_epoch} : Average Loss -> Disc: {avg_loss[0]:.4f}, Gen: {avg_loss[1]:.4f}, FM: {avg_loss[2]:.4f}, Mel: {avg_loss[3]:.4f}, KL: {avg_loss[4]:.4f}")
+            with open(train_log_path, "a") as log_file:
+                log_file.write(f"Epoch {current_epoch} : Average Loss -> Disc: {avg_loss[0]:.4f}, Gen: {avg_loss[1]:.4f}, FM: {avg_loss[2]:.4f}, Mel: {avg_loss[3]:.4f}, KL: {avg_loss[4]:.4f}\n")
+
     sr, f0, version = change_info_(train_log_path)
     logger.info(f"Training completed with sample rate: {sr}, f0: {f0}, version: {version}")
     

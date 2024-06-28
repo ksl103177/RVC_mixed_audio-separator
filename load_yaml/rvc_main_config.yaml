@@ -4,7 +4,7 @@ model:
 
 paths:
   input_audio: ""
-  first_mr_output_dir: "t"
+  first_mr_output_dir: ""
   output_info: ""
   output_audio: ""
   mixed_output: ""
