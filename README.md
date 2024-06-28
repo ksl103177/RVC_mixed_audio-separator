@@ -53,7 +53,13 @@
 - protect: Consonant and breath protection, option = 0.0 to 1.0 (real value)
 4. After specifying all the values needed for the inference, type python main.py in the command.
 ---
-## Installing a pre-trained model
+## Installing a pre-trained model(Path -> assets/pretrained_v2)
 [Install pre-trained models(default)](https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/pretrained_v2)
 
 [Install Pre-trained models(korean)](https://huggingface.co/SeoulStreamingStation/KLM4/tree/main)
+---
+## Installing hubert(Path -> assets/hubert)
+[Install hubert_base.pt](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/hubert_base.pt)
+---
+## Installing rmvpe(Path -> assets/rmvpe)
+[Install rmvpe.pt](https://huggingface.co/lj1995/VoiceConversionWebUI/blob/main/rmvpe.pt)
