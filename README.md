@@ -55,6 +55,6 @@
 ---
 ## Installing a pre-trained model
 ### Installing a pre-trained model
-[Install the default pre-trained model](https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/pretrained_v2)
+[Install pre-trained models(default)](https://huggingface.co/lj1995/VoiceConversionWebUI/tree/main/pretrained_v2)
 
 [Install Pre-trained models(korean)](https://huggingface.co/SeoulStreamingStation/KLM4/tree/main)
