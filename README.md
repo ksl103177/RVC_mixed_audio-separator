@@ -1,7 +1,8 @@
 # RVC + Audio separator project
 
-## Installation Guide
+## python version 3.8 <= 3.11
 ---
-1. python version : 3.10
-    - conda create -n rvc python==3.10
-    - 
+## Installation Guide
+- conda create -n rvc python==3.10
+- activate rvc
+- 
