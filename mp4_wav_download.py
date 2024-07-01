@@ -14,15 +14,14 @@ def download_youtube_videos(urls):
             continue
         try:
             print(f"다운로드 중... : {url}")
-            # 영상과 오디오를 각각 최상의 품질로 다운로드
+            # video download
             # video_command = [yt_dlp_path, '-f', 'bestvideo', '--verbose', '--concurrent-fragments', '8', url]
+            # audio download
             audio_command = [yt_dlp_path, '-f', 'bestaudio', '--extract-audio', '--audio-format', 'wav', '--verbose', '--concurrent-fragments', '8', url]
             
-            # 영상 다운로드
             # subprocess.run(video_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             # print("영상 다운로드 완료...")
             
-            # 오디오 다운로드 (WAV 형식)
             subprocess.run(audio_command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             print("오디오 다운로드 및 변환 완료...")
             

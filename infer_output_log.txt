@@ -1,5 +1,0 @@
-Success.
-Index:
-C:/RVC/RVC_test/logs/local_ansunghun_01/added_IVF4058_Flat_nprobe_1_local_ansunghun_01_v2.index.
-Time:
-npy: 0.71s, f0: 1.67s, infer: 1.83s.
