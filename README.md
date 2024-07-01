@@ -6,7 +6,7 @@
 ---
 ## Installation Guide
 ```bash
-    git clone https://github.com/ksl103177/RVC_mixed_audio-separator.git
+git clone https://github.com/ksl103177/RVC_mixed_audio-separator.git
 ```
 ```bash
 cd RVC_mixed_audio-separator
