@@ -20,33 +20,22 @@ ___git clone https://github.com/ksl103177/RVC_mixed_audio-separator.git___
 |:---------------|:------|:--------|
 | **exp_dir1** | Name of the model to train |  |
 | sr2 | Adjust the sampling rate value | 32k, 40k, 48k |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-- if_f0_3 : Adjust whether to extract F0, option = True, False
-- spk_id5 = specify speaker ID, options = 0, 1, 2 (integer value)
-- save_epoch10 : Specify the epoch to save the model checkpoint, options = 10, 20, 30 (integer value)
-- total_epoch11: Specify the total number of training epochs, options = 100, 200, 300 (integer value)
-- batch_size12: Specify the training batch size, options = 16, 32, 48 (integer value)
-- in_save_latest13 : Specify whether to save the latest model checkpoint, options = True, False
-- pretrained_G14: Specifies the path to the pre-trained Generato model
-- pretrained_D14 : Specifies the path to the pre-trained Discriminator model
-- gpus16 : Specify the GPU number used for training, options = 0, 0,1
-- if_cache_gpu17 : Specify whether to cache data to GPU, options = True, False
-- if_save_every_weights18 : Whether to save all checkpoints, option = True, False
-- version19 : Specify the model version, options = v1, v2
-- n_p : Specify the number of processes to use for model training, options = 4, 6, 8 (integer values)
-- f0method : Specify F0 extraction method, options = pm, harvest, dio, rmvpe, rmvpe_gpu
-- gpus_rmvpe : Specify GPU number to use for RMVPE model, 0, 0,1 (integer value)
-- trainset_dir4 : Specify the path to the training data
+| if_f0_3 | Adjust whether to extract F0 | True, False |
+| spk_id5 | specify speaker ID | 0, 1, 2 (integer value) |
+| save_epoch10 | Specify the epoch to save the model checkpoint | 10, 20, 30 (integer value) |
+| total_epoch11 | Specify the total number of training epochs | 100, 200, 300 (integer value) |
+| batch_size12 | Specify the training batch size | options = 16, 32, 48 (integer value) |
+| in_save_latest13 | Specify whether to save the latest model checkpoint | True, False |
+| pretrained_G14 | Specifies the path to the pre-trained Generato model |  |
+| pretrained_D14 | Specifies the path to the pre-trained Discriminator model |  |
+| gpus16 | Specify the GPU number used for training | 0, 0,1 |
+| if_cache_gpu17 | Specify whether to cache data to GPU | True, False |
+| if_save_every_weights18 | Whether to save all checkpoints | True, False |
+| version19 | Specify the model version | v1, v2 |
+| n_p | Specify the number of processes to use for model training | 4, 6, 8 (integer values) |
+| f0method | Specify F0 extraction method | pm, harvest, dio, rmvpe, rmvpe_gpu |
+| gpus_rmvpe | Specify GPU number to use for RMVPE model | 0, 0,1 (integer value) |
+| trainset_dir4 | Specify the path to the training data |  |
 2. After specifying all the values needed for training, type python train_cli.py in the command.
 ### Inference
 3. Enter the values from the rvc_main_config.yaml file in the load_yaml folder.
