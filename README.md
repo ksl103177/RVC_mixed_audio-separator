@@ -5,7 +5,7 @@
 ## python version 3.8 <= 3.11
 ---
 ## Installation Guide
-- '''git clone https://github.com/ksl103177/RVC_mixed_audio-separator.git'''
+'''git clone https://github.com/ksl103177/RVC_mixed_audio-separator.git'''
 - cd RVC_mixed_audio-separator
 - conda create -n rvc python==3.10
 - activate rvc
