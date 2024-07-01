@@ -8,11 +8,21 @@
 ```bash
     git clone https://github.com/ksl103177/RVC_mixed_audio-separator.git
 ```
-- cd RVC_mixed_audio-separator
-- conda create -n rvc python==3.10
-- activate rvc
-- pip install -r requirements.txt
-- pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```bash
+cd RVC_mixed_audio-separator
+```
+```bash
+conda create -n rvc python==3.10
+```
+```bash
+activate rvc
+```
+```bash
+pip install -r requirements.txt
+```
+```bash
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
 ---
 ## How to use
 ### Training
