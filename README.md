@@ -18,8 +18,8 @@ ___git clone https://github.com/ksl103177/RVC_mixed_audio-separator.git___
 
 | parameter name | Value | options |
 |:---------------|:------|:--------|
-| **exp_dir1**
--  : Name of the model to train
+| **exp_dir1** | Name of the model to train |  |
+-  : 
 - sr2 : Adjust the sampling rate value, options = 32k, 40k, 48k
 - if_f0_3 : Adjust whether to extract F0, option = True, False
 - spk_id5 = specify speaker ID, options = 0, 1, 2 (integer value)
