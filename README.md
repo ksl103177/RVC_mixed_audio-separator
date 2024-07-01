@@ -26,7 +26,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 ---
 ## How to use
 ### Training
-1. Enter the values from the rvc_train_config.yaml file in the load_yaml folder.
+#### Enter the values from the rvc_train_config.yaml file in the load_yaml folder.
 
 | parameter name | Value | options |
 |:---------------|:------|:--------|
