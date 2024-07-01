@@ -48,9 +48,9 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 | **f0method** | Specify F0 extraction method | pm, harvest, dio, rmvpe, rmvpe_gpu |
 | **gpus_rmvpe** | Specify GPU number to use for RMVPE model | 0, 0,1 (integer value) |
 | **trainset_dir4** | Specify the path to the training data |  |
-2. After specifying all the values needed for training, type python train_cli.py in the command.
+#### After specifying all the values needed for training, type python train_cli.py in the command.
 ### Inference
-3. Enter the values from the rvc_main_config.yaml file in the load_yaml folder.
+#### Enter the values from the rvc_main_config.yaml file in the load_yaml folder.
 
 | parameter name | Value | options |
 |:---------------|:------|:--------|
@@ -69,7 +69,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 | resample_sr | Resampling sample rate | 16000, 22050, 44100, 48000 |
 | rms_mix_rate | RMS mix rate | 0.0 ~ 1.0 (float value) |
 | protect | Consonant and breath protection | 0.0 ~ 1.0 (float value) |
-4. After specifying all the values needed for the inference, type python main.py in the command.
+#### After specifying all the values needed for the inference, type python main.py in the command.
 ---
 ## Installing a pre-trained model
 - (Path -> assets/pretrained_v2)
