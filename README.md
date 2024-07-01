@@ -15,6 +15,7 @@ ___git clone https://github.com/ksl103177/RVC_mixed_audio-separator.git___
 ## How to use
 ### Training
 1. Enter the values from the rvc_train_config.yaml file in the load_yaml folder.
+
 | parameter name | Value | options |
 - exp_dir1 : Name of the model to train
 - sr2 : Adjust the sampling rate value, options = 32k, 40k, 48k
