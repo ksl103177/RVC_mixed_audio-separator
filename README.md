@@ -36,7 +36,7 @@ pip3 install torch torchvision torchaudio --index-url https://download.pytorch.o
 | **spk_id5** | specify speaker ID | 0, 1, 2 (integer value) |
 | **save_epoch10** | Specify the epoch to save the model checkpoint | 10, 20, 30 (integer value) |
 | **total_epoch11** | Specify the total number of training epochs | 100, 200, 300 (integer value) |
-| **batch_size12** | Specify the training batch size | options = 16, 32, 48 (integer value) |
+| **batch_size12** | Specify the training batch size | 16, 32, 48 (integer value) |
 | **in_save_latest13** | Specify whether to save the latest model checkpoint | True, False |
 | **pretrained_G14** | Specifies the path to the pre-trained Generato model | None |
 | **pretrained_D14** | Specifies the path to the pre-trained Discriminator model | None |
