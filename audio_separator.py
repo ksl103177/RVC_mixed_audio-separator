@@ -9,7 +9,7 @@ def move_file(file_path, target_path):
     try:
         if os.path.isfile(file_path):
             shutil.move(file_path, target_path)
-            print(f"파일 '{file_path}'이(가) '{target_path}'로 이동되었습니다.")
+            print(f"파일 '{file_path}'이'{target_path}'로 이동되었습니다.")
         else:
             print(f"해당 파일이 없습니다: '{file_path}'")
     except Exception as e:
