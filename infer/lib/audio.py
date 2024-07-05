@@ -27,20 +27,8 @@ def wav2(i, o, format):
 
 def load_audio(file, sr, cmd="ffmpeg"):
     try:
-<<<<<<< HEAD
         file = clean_path(file)
         out, err = (
-=======
-        # https://github.com/openai/whisper/blob/main/whisper/audio.py#L26
-        # This launches a subprocess to decode audio while down-mixing and resampling as necessary.
-        # Requires the ffmpeg CLI and `ffmpeg-python` package to be installed.
-        file = clean_path(file)  # 防止小白拷路径头尾带了空格和"和回车
-        if os.path.exists(file) == False:
-            raise RuntimeError(
-                "You input a wrong audio path that does not exists, please fix it!"
-            )
-        out, _ = (
->>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
             ffmpeg.input(file, threads=0)
             .output("-", format="f32le", acodec="pcm_f32le", ac=1, ar=sr)
             .run(cmd=[cmd, "-nostdin"], capture_stdout=True, capture_stderr=True)
@@ -48,20 +36,10 @@ def load_audio(file, sr, cmd="ffmpeg"):
     except ffmpeg.Error as e:
         raise RuntimeError(f"Failed to load audio: {e.stderr.decode()}") from e
     except Exception as e:
-<<<<<<< HEAD
         raise RuntimeError(f"Failed to load audio: {e}") from e
 
     return np.frombuffer(out, np.float32).flatten()
 
-=======
-        traceback.print_exc()
-        raise RuntimeError(f"Failed to load audio: {e}")
-
-    return np.frombuffer(out, np.float32).flatten()
-
-
-
->>>>>>> 1f1755fe3dd2fbe201518f137580943e142c99b4
 def clean_path(path_str):
     if platform.system() == "Windows":
         path_str = path_str.replace("/", "\\")
