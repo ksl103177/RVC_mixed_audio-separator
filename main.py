@@ -14,10 +14,10 @@ from configs.config import Config
 from dotenv import load_dotenv
 
 # .env 파일 로드
-load_dotenv('C:/RVC/RVC_test/.env')
+load_dotenv('your .env path')
 
 # YAML 설정 파일 로드
-with open('C:/RVC/RVC_test/load_yaml/rvc_main_config.yaml', 'r') as file:
+with open('your yaml path', 'r') as file:
     config_data = yaml.safe_load(file)
 
 # 설정 로드 및 VC 인스턴스 생성
@@ -110,7 +110,7 @@ def audio_sep(input_audio_path, first_mr_output_dir):
 
     return output_file_paths_3[0], mr_target_path
 
-def single_inference(input_audio):
+def single_inference(input_audio, output_dir):
     start_time = time.time()
 
     spk_id = config_data['inference']['spk_id']
@@ -124,11 +124,12 @@ def single_inference(input_audio):
     rms_mix_rate = config_data['inference']['rms_mix_rate']
     protect = config_data['inference']['protect']
     output_info = config_data['paths']['output_info']
-    output_audio = config_data['paths']['output_audio']
+    
+    output_vocal_path = os.path.join(output_dir, "output_infer.wav")
 
     print("단일 추론 시작...")
     try:
-        os.makedirs(os.path.dirname(output_audio), exist_ok=True)
+        os.makedirs(output_dir, exist_ok=True)
 
         result, audio_output = vc.vc_single(
             spk_id,
@@ -147,13 +148,13 @@ def single_inference(input_audio):
         with open(output_info, "w") as f:
             f.write(result)
         sr, audio_data = audio_output
-        sf.write(output_audio, audio_data, sr)
+        sf.write(output_vocal_path, audio_data, sr)
         print("단일 추론 완료!")
         
         elapsed_time = time.time() - start_time
         print(f"걸린 시간 :  {elapsed_time:.2f}초")
         
-        return output_audio
+        return output_vocal_path
     except Exception as e:
         print(f"단일 추론 중 에러가 발생했습니다... : {e}")
         print(traceback.format_exc())
@@ -186,14 +187,20 @@ if __name__ == "__main__":
     
     input_audio_path = config_data['paths']['input_audio']
     first_mr_output_dir = config_data['paths']['first_mr_output_dir']
-    output_path = config_data['paths']['output_audio']
+    output_base_path = config_data['paths']['output_audio']
+    
+    os.makedirs(output_base_path, exist_ok=True)
+    
+    output_dir = output_base_path
+    output_base_filename = "output"
     
     processed_audio_path, mr_path = audio_sep(input_audio_path, first_mr_output_dir)
     
     if processed_audio_path is not None and mr_path is not None:
-        output_audio_path = single_inference(processed_audio_path)
-        if output_audio_path is not None:
-            mix_audio(output_audio_path, mr_path, output_path)
+        output_vocal_path = single_inference(processed_audio_path, output_dir)
+        if output_vocal_path is not None:
+            output_mix_path = os.path.join(output_dir, output_base_filename + "_mix.wav")
+            mix_audio(output_vocal_path, mr_path, output_mix_path)
         else:
             print("RVC 추론에 실패했습니다. 오디오 믹싱이 수행되지 않습니다...")
     else:
