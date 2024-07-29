@@ -32,7 +32,7 @@ def download_youtube_videos(urls):
             print(f"An error occurred with {url}: {str(e)}")
 
 video_urls = [
-    'https://www.youtube.com/watch?v=D33k0WQafUE',
-]
+              '',
+             ]
 
 download_youtube_videos(video_urls)
