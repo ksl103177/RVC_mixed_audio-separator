@@ -8,7 +8,7 @@ from function.functions import extract_f0_feature, click_train, train_index, pre
 load_dotenv()
 
 # YAML 설정 파일 로드
-with open('C:/RVC/RVC_test/load_yaml/rvc_train_config.yaml', 'r') as file:
+with open('your_yaml_path', 'r') as file:
     config_data = yaml.safe_load(file)
 
 # 설정 값을 YAML 파일에서 가져오기
