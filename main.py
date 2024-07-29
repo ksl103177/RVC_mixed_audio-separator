@@ -14,10 +14,10 @@ from configs.config import Config
 from dotenv import load_dotenv
 
 # .env 파일 로드
-load_dotenv('your .env path')
+load_dotenv('your_.env_path')
 
 # YAML 설정 파일 로드
-with open('your yaml path', 'r') as file:
+with open('your_main_yaml_path', 'r') as file:
     config_data = yaml.safe_load(file)
 
 # 설정 로드 및 VC 인스턴스 생성
