@@ -8,7 +8,7 @@ from configs.config import Config
 from dotenv import load_dotenv
 import traceback
 
-load_dotenv('C:/RVC/RVC_test/.env')
+load_dotenv('your_.env_path')
 
 config = Config()
 
