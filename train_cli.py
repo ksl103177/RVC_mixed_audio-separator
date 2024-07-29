@@ -5,10 +5,10 @@ import yaml
 from function.functions import extract_f0_feature, click_train, train_index, preprocess_dataset
 
 # .env 파일 로드
-load_dotenv()
+load_dotenv('your_.env_path')
 
 # YAML 설정 파일 로드
-with open('your_yaml_path', 'r') as file:
+with open('your_train_yaml_path', 'r') as file:
     config_data = yaml.safe_load(file)
 
 # 설정 값을 YAML 파일에서 가져오기
